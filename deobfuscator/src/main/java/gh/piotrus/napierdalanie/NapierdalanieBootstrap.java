@@ -10,6 +10,7 @@ import gh.piotrus.napierdalanie.transformer.DecryptionTransformer;
 import gh.piotrus.napierdalanie.transformer.IntObfuscationRemover;
 import gh.piotrus.napierdalanie.transformer.MappingGenerator;
 import gh.piotrus.napierdalanie.transformer.NumberTransformer;
+import gh.piotrus.napierdalanie.transformer.ResourceRemover;
 import gh.piotrus.napierdalanie.transformer.StringEncryptionTransformer;
 import gh.piotrus.napierdalanie.transformer.SyntheticBridgeRemover;
 import java.io.File;
@@ -87,6 +88,7 @@ public final class NapierdalanieBootstrap {
         .execute(new ArrayUnpooler())
         .execute(new ClinitFolder())
         .execute(new MappingGenerator())
+        .execute(new ResourceRemover())
         .export(new ZipTransformerFileExporter(new File("out.jar")), classFile -> {
           ClassWriter cw = new MappingClassWriter(mappings,
               ClassWriter.COMPUTE_MAXS);
