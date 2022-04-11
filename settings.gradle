@@ -1,0 +1,4 @@
+rootProject.name = 'napierdalanie'
+include 'deobfuscator'
+include 'resource-unpacker'
+
